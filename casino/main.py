@@ -1,5 +1,4 @@
 from casino.games.blackjack import play_blackjack
-import pyfiglet
 from colorama import Fore, Style, init
 from InquirerPy import inquirer, get_style
 import shutil
@@ -15,16 +14,12 @@ def center_text(text: str) -> str:
 
 
 def show_welcome_screen():
-    # Generate ASCII Art with pyfiglet
-    text = "\nTERMINAL CASINO"
-    font = "standard"
-    ascii_art = pyfiglet.figlet_format(text, font=font)
-
-    # Add color to ASCII art text
-    colored_ascii_art = f"{Fore.WHITE}{ascii_art}{Style.RESET_ALL}"
-
-    # Print centered ASCII art
-    print(center_text(colored_ascii_art))
+    ascii_art = """
+┌──────────────────────────────────────┐
+│   ♦️ T E R M I N A L  C A S I N O ♦️   │
+└──────────────────────────────────────┘
+"""
+    print(ascii_art)
 
     # Define a custom style for InquirerPy
     style = get_style(
@@ -61,7 +56,7 @@ def show_welcome_screen():
     return choice
 
 
-if __name__ == "__main__":
+if name == "main":
     choice = show_welcome_screen()
 
     if choice.startswith("Play"):
